@@ -1,0 +1,42 @@
+Release Notes - SABnzbd 3.4.1
+=========================================================
+
+## Bugfixes since 3.4.0
+- macOS: Failed to run on M1 systems or older macOS versions.
+
+## Changes since 3.3.1
+- Extended `Deobfuscate final filenames` to attempt to set the correct 
+  file extension based on the file signature if the file extension is 
+  not present or meaningless.
+- Added additional pattern keys that can be used in the `Sort String`
+  for Sorting, by using the `guessit` package internally for parsing.
+- If unpacked files contain `.par2` files they will always be read and
+  used to rename any matching files.
+- Regular expressions can be used to specify `Unwanted extensions`.
+- Not all passwords will be tried if a matching one was found.
+- Some interface-only options were added as API-call.
+- The Plush skin has been removed.
+
+## Bugfixes since 3.3.1
+- Duplicate check based on `.nzb` MD5 was performed before it was calculated.
+- Enforce `local_ranges` for broadcasts (Bonjour/SSDP).
+- Correctly parse the filename in `Content-Disposition` header.
+- `Warning` instead of `Info` when there is a restart due to crashed thread.
+- Only run Direct Unpack if `enable_unrar` is enabled.
+
+## Upgrade notices
+- The download statistics file `totals10.sab` is updated in 3.2.x 
+  version. If you downgrade to 3.1.x or lower, detailed download 
+  statistics will be lost.
+
+## Known problems and solutions
+- Read the file "ISSUES.txt"
+
+## About
+  SABnzbd is an open-source cross-platform binary newsreader.
+  It simplifies the process of downloading from Usenet dramatically, thanks
+  to its web-based user interface and advanced built-in post-processing options
+  that automatically verify, repair, extract and clean up posts downloaded
+  from Usenet.
+
+  (c) Copyright 2007-2021 by "The SABnzbd-team" \<team@sabnzbd.org\>

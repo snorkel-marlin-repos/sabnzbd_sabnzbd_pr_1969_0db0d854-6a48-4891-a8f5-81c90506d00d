@@ -1,0 +1,13 @@
+# Testing requirements
+selenium
+requests
+pytest
+pyfakefs
+pytest-httpbin
+pytest-httpserver
+flaky
+xmltodict
+tavern<1.16.2; python_version == '3.6'
+tavern; python_version > '3.6'
+tavalidate
+lxml>=4.5.0 # needed by tavalidate

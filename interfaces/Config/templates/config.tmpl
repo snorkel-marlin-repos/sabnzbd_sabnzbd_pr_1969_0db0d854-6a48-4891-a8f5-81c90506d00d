@@ -1,0 +1,133 @@
+<!--#set global $pane="Config"#-->
+<!--#set global $help_uri="configuration/3.5/configure"#-->
+<!--#include $webdir + "/_inc_header_uc.tmpl"#-->
+
+<!--#from sabnzbd.encoding import CODEPAGE#-->
+<div class="colmask">
+    <div class="section padTable">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th scope="row">$T('version'): </th>
+                    <td>$version [<a href="https://github.com/sabnzbd/sabnzbd/commit/$build" target="_blank">$build</a>]</td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('uptime'): </th>
+                    <td>$uptime</td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('confgFile'): </th>
+                    <td>$configfn</td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('parameters'): </th>
+                    <td>$cmdline</td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('pythonVersion'): </th>
+                    <td>$sys.version[:120] [$CODEPAGE]</td>
+                </tr>
+                <tr>
+                    <th scope="row">OpenSSL:</th>
+                    <td>
+                        $ssl_version
+                    </td>
+                </tr>
+                <!--#if not $certificate_validation#-->
+                <tr>
+                    <th scope="row"></th>
+                    <td>
+                        <span class="label label-danger">$T('warning')</span> $T('explain-nosslcontext')
+                    </td>
+                </tr>
+                <!--#end if#-->
+                <!--#if not $nt and not $darwin#-->
+                <tr>
+                    <th scope="row">$T('opt-multicore-par2')</th>
+                    <td>
+                        <!--#if $have_mt_par2#-->
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <!--#else#-->
+                        <span class="label label-warning">$T('notAvailable')</span> $T('explain-getpar2mt')
+                        <a href="${helpuri}installation/multicore-par2" target="_blank">${helpuri}installation/multicore-par2</a>
+                        <!--#end if#-->
+                    </td>
+                </tr>
+                <!--#end if#-->
+                <!--#if not $have_sabyenc#-->
+                <tr>
+                    <th scope="row">SABYenc:</th>
+                    <td>
+                        <span class="label label-danger">$T('notAvailable')</span>
+                        <a href="$helpuri$help_uri#no_sabyenc" target="_blank"><span class="glyphicon glyphicon-question-sign"></span></a>
+                    </td>
+                </tr>
+                <!--#end if#-->
+                <!--#if not $have_unzip and not $have_7zip #-->
+                <tr>
+                    <th scope="row">$T('opt-enable_unzip'):</th>
+                    <td>
+                        <span class="label label-warning">$T('notAvailable')</span>
+                        <a href="${helpuri}installation/install-off-modules#toc8" target="_blank"><span class="glyphicon glyphicon-question-sign"></span></a>
+                    </td>
+                </tr>
+                <!--#end if#-->
+                <!--#if not $have_7zip #-->
+                <tr>
+                    <th scope="row">$T('opt-enable_7zip'):</th>
+                    <td>
+                        <span class="label label-warning">$T('notAvailable')</span>
+                        <a href="${helpuri}installation/install-off-modules#toc8" target="_blank"><span class="glyphicon glyphicon-question-sign"></span></a>
+                    </td>
+                </tr>
+                <!--#end if#-->
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="colmask">
+    <div class="section padTable">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th scope="row">$T('homePage') </th>
+                    <td><a href="https://sabnzbd.org/" target="_blank">https://sabnzbd.org/</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('menu-wiki') </th>
+                    <td><a href="https://sabnzbd.org/wiki/" target="_blank">https://sabnzbd.org/wiki/</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('menu-forums') </th>
+                    <td><a href="https://forums.sabnzbd.org/" target="_blank">https://forums.sabnzbd.org/</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('source') </th>
+                    <td><a href="https://github.com/sabnzbd/sabnzbd" target="_blank">https://github.com/sabnzbd/sabnzbd</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('menu-irc') </th>
+                    <td><a href="irc://irc.synirc.net/#sabnzbd"><i>#sabnzbd</i> on <i>irc.synirc.net</i></a> $T('or') (<a href="http://sabnzbd.org/live-chat/" target="_blank">webchat</a>)</td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('menu-issues') </th>
+                    <td><a href="https://sabnzbd.org/wiki/introduction/known-issues" target="_blank">https://sabnzbd.org/wiki/introduction/known-issues</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">$T('menu-donate') </th>
+                    <td><a href="https://sabnzbd.org/donate" target="_blank">https://sabnzbd.org/donate</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="colmask">
+    <div class="padding alt">
+        <h5 class="copyright">Copyright &copy; 2007-2021 The SABnzbd Team &lt;<a href="mailto:team@sabnzbd.org">team@sabnzbd.org</a>&gt;</h5>
+        <p class="copyright"><small>$T('yourRights')</small></p>
+    </div>
+
+</div>
+
+<!--#include $webdir + "/_inc_footer_uc.tmpl"#-->
